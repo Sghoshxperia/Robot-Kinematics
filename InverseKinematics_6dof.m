@@ -1,4 +1,3 @@
-clc;
 
 # End effector orientation and position to be given
 
