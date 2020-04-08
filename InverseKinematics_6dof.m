@@ -1,4 +1,6 @@
-clear
+clc;
+
+# End effector orientation and position to be given
 
 EE = [  1.00000    0.00000    0.00000   16.39000;
         0.00000   -1.00000    0.00000   -6.75000;
@@ -30,7 +32,6 @@ X = sqrt(Px*Px+Py*Py)*cos(phi-Theta1);
 cos_Theta3 = (X*X+Y*Y - a2*a2 - d4*d4)/(2*a2*d4);
 sin_Theta3 = sqrt(1-cos_Theta3*cos_Theta3);
 Theta3 = atan2(sin_Theta3,cos_Theta3);
-#Theta3 = pi;
 
 #Calculating Theta2
 
@@ -90,7 +91,7 @@ if (T_36(2,1)<1.0e-10)
 endif;
 
   
-  
+# Euler angle for solution of last three angles:  
 
 Theta4s3 = atan2(T_36(3,3),-T_36(1,3));
 Theta5s3 = atan2(sqrt(T_36(3,3)^2 + T_36(1,3)^2),T_36(2,3));
@@ -120,6 +121,8 @@ T_06 = T_03 * T_34 * T_45 * T_56;
 
 #The required joint angles
 theta = [Theta1 Theta2 Theta3 Theta4s3 Theta5s3 Theta6s3]'*(180/pi);
+
+# This is the inverse kinematics for a PUMA 560 robotic arm. The method used here is kinematic decoupling and DH parameters.
 
 
  
