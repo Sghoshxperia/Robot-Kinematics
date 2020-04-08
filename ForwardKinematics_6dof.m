@@ -1,3 +1,6 @@
+# This is Forward Kinematics for a PUMA 560 robotic arm using DH paramters and transformation matrices
+
+
 d3 = -6.75;     # offset distance between joint 2 and joint 3
 d1 = 26.45;     # distance from base to first joint (Link 1 length)
 a2 = 16.39;     # Link 2 length 
